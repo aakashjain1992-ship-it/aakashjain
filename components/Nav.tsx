@@ -9,8 +9,57 @@ const LINKS = [
   { id: "contact", label: "contact" },
 ];
 
+function NodeMark() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden
+      className="shrink-0"
+    >
+      <path
+        d="M3 12L8 4L13 12"
+        stroke="var(--cyan)"
+        strokeWidth="1.2"
+        strokeOpacity="0.6"
+      />
+      <circle cx="8" cy="4" r="1.6" fill="var(--cyan)" />
+      <circle cx="3" cy="12" r="1.6" fill="var(--magenta)" />
+      <circle cx="13" cy="12" r="1.6" fill="var(--cyan)" />
+    </svg>
+  );
+}
+
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+      {open ? (
+        <path
+          d="M4 4L14 14M14 4L4 14"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
+      ) : (
+        <>
+          <path
+            d="M3 5H15M3 9H15M3 13H15"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function Nav() {
   const [active, setActive] = useState<string>("");
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = [...LINKS.map((l) => l.id), "top"]
@@ -26,33 +75,99 @@ export default function Nav() {
       { rootMargin: "-40% 0px -55% 0px" }
     );
     sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
+  // Close the mobile menu whenever the active section changes (i.e. a link was followed)
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [active]);
+
   return (
-    <nav className="sticky top-0 z-50 border-b border-line bg-[rgba(6,8,15,0.82)] backdrop-blur-md">
+    <nav
+      className={`sticky top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
+        scrolled
+          ? "border-line-bright bg-[rgba(6,8,15,0.92)] shadow-[0_1px_0_0_rgba(0,229,255,0.15),0_8px_24px_-12px_rgba(0,0,0,0.6)]"
+          : "border-transparent bg-[rgba(6,8,15,0.55)]"
+      }`}
+    >
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <a
           href="#top"
-          className="whitespace-nowrap font-display text-[15px] font-medium text-ink"
+          className="flex items-center gap-2.5 whitespace-nowrap font-display text-[15px] font-medium text-ink"
         >
+          <NodeMark />
           <span className="sm:hidden">AJ</span>
           <span className="hidden sm:inline">Aakash Jain</span>
           <span className="glow-cyan text-cyan">.</span>
         </a>
-        <div className="flex items-center gap-4 sm:gap-7">
+
+        <div className="hidden items-center gap-7 sm:flex">
           {LINKS.map((l) => (
             <a
               key={l.id}
               href={`#${l.id}`}
               data-active={active === l.id}
-              className="nav-link font-mono text-[11px] text-ink-soft transition-colors hover:text-ink sm:text-[12px]"
+              className="nav-link font-mono text-[12px] text-ink-soft transition-colors hover:text-ink"
             >
               /{l.label}
             </a>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm border border-cyan/40 bg-[rgba(0,229,255,0.08)] px-3 py-1.5 font-mono text-[11px] text-cyan transition-colors hover:bg-[rgba(0,229,255,0.16)]"
+          >
+            resume
+          </a>
+        </div>
+
+        <div className="flex items-center gap-3 sm:hidden">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm border border-cyan/40 bg-[rgba(0,229,255,0.08)] px-2.5 py-1.5 font-mono text-[11px] text-cyan transition-colors hover:bg-[rgba(0,229,255,0.16)]"
+          >
+            resume
+          </a>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation menu"
+            className="flex h-8 w-8 items-center justify-center text-ink-soft transition-colors hover:text-cyan"
+          >
+            <MenuIcon open={menuOpen} />
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="border-t border-line bg-[rgba(6,8,15,0.97)] px-6 py-4 sm:hidden">
+          <div className="flex flex-col gap-4">
+            {LINKS.map((l) => (
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                data-active={active === l.id}
+                className="nav-link font-mono text-sm text-ink-soft transition-colors hover:text-ink"
+              >
+                /{l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
