@@ -4,12 +4,6 @@ export default function Hero() {
   return (
     <header id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-5xl px-6 pb-24 pt-28 sm:pt-36">
-        <Reveal>
-          <p className="mb-5 flex items-center gap-2.5 font-mono text-xs text-lime">
-            <span className="status-dot" />
-            available — open to senior PM roles
-          </p>
-        </Reveal>
         <Reveal delay={100}>
           <h1 className="max-w-2xl font-display text-4xl font-medium leading-[1.08] text-ink sm:text-6xl">
             Product management,{" "}
