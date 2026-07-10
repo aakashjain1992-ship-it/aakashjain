@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #06080f;
+  --void-2: #0a0d18;
+  --surface: #0d1120;
+  --surface-2: #111629;
+  --text: #e9edf6;
+  --text-soft: #98a1b3;
+  --text-faint: #5a6377;
+  --line: #1c2336;
+  --line-bright: #2a3350;
+  --cyan: #00e5ff;
+  --cyan-dim: #0aa8c4;
+  --cyan-soft: rgba(0, 229, 255, 0.08);
+  --magenta: #ff3df2;
+  --magenta-soft: rgba(255, 61, 242, 0.08);
+  --lime: #b6ff2e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--void);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--void);
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Blueprint dot grid overlay */
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(0, 229, 255, 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Neon text glow — used sparingly */
+.glow-cyan {
+  text-shadow:
+    0 0 12px rgba(0, 229, 255, 0.55),
+    0 0 40px rgba(0, 229, 255, 0.25);
+}
+.glow-magenta {
+  text-shadow:
+    0 0 12px rgba(255, 61, 242, 0.5),
+    0 0 40px rgba(255, 61, 242, 0.22);
+}
+
+/* Status dot pulse */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(182, 255, 46, 0.55);
+  }
+  60% {
+    box-shadow: 0 0 0 7px rgba(182, 255, 46, 0);
+  }
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--lime);
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .status-dot {
+    animation: none;
+  }
+}
+
+/* Card hover treatment */
+.neon-card {
+  background: linear-gradient(
+    180deg,
+    var(--surface) 0%,
+    rgba(13, 17, 32, 0.6) 100%
+  );
+  border: 1px solid var(--line);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.neon-card:hover {
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 255, 0.25),
+    0 0 32px rgba(0, 229, 255, 0.08),
+    inset 0 0 24px rgba(0, 229, 255, 0.04);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .neon-card,
+  .neon-card:hover {
+    transform: none;
+  }
+}
+
+/* Nav underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 1px;
+  width: 0;
+  background: var(--cyan);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+  transition: width 0.22s ease;
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  width: 100%;
+}
+.nav-link[data-active="true"] {
+  color: var(--cyan);
+}
+
+/* Section path-label */
+.path-label {
+  color: var(--cyan);
+  letter-spacing: 0.04em;
+}
+.path-label::before {
+  content: "~";
+  color: var(--text-faint);
+  margin-right: 2px;
+}
+
+/* Metric badge pill */
+.metric {
+  background: var(--cyan-soft);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  color: var(--cyan);
+}
+
+/* Scanline shimmer under hero headline */
+@keyframes scan {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+.scanline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan) 30%,
+    var(--magenta) 55%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: scan 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scanline {
+    animation: none;
+    background: var(--cyan);
+  }
+}
