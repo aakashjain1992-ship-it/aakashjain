@@ -1,11 +1,14 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import PeriodToggle from "./PeriodToggle";
 
 const ROLES = [
   {
     title: "Senior Technical Product Manager",
     company: "Akamai Technologies",
     period: "Aug 2021 — present",
+    startDate: new Date(2021, 7, 1),
+    endDate: undefined,
     domain:
       "Core internal logistics tooling — spanning on-ground field support and ISP traffic dashboards",
     bullets: [
@@ -21,6 +24,8 @@ const ROLES = [
     title: "Product Owner",
     company: "Jiffyship (Freight Mango)",
     period: "Mar 2020 — Jul 2021",
+    startDate: new Date(2020, 2, 1),
+    endDate: new Date(2021, 6, 1),
     domain:
       "Marketplace model for ocean freight — built across customer, vendor, and internal-ops surfaces",
     bullets: [
@@ -35,6 +40,8 @@ const ROLES = [
     title: "Product Manager",
     company: "Vinculum Solutions",
     period: "Apr 2016 — Mar 2020",
+    startDate: new Date(2016, 3, 1),
+    endDate: new Date(2020, 2, 1),
     domain:
       "SaaS order & inventory management platform for eCommerce sellers",
     bullets: [
@@ -61,9 +68,11 @@ export default function Experience() {
                   {r.title}{" "}
                   <span className="text-ink-soft">— {r.company}</span>
                 </h3>
-                <span className="font-mono text-xs text-ink-faint">
-                  {r.period}
-                </span>
+                <PeriodToggle
+                  period={r.period}
+                  startDate={r.startDate}
+                  endDate={r.endDate}
+                />
               </div>
               <p className="mt-2 text-sm italic text-ink-faint">{r.domain}</p>
               <ul className="mt-4 space-y-2 text-[15px] leading-relaxed text-ink-soft">

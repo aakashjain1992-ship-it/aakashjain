@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import CopyEmailButton from "./CopyEmailButton";
 
 const CERTS = [
   "Certified SAFe® 5 Product Owner / Product Manager — Scaled Agile, Inc.",
@@ -180,6 +181,7 @@ export default function Closing() {
               >
                 email me
               </a>
+              <CopyEmailButton email="aakashjain1992@gmail.com" />
               <a
                 href="https://www.linkedin.com/in/aakashjain1992"
                 target="_blank"

@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { getYearsOfExperience } from "@/lib/experience";
 
 export default function Hero() {
+  const years = getYearsOfExperience();
   return (
     <header id="top" className="relative overflow-hidden">
-      <div className="mx-auto flex max-w-5xl flex-col-reverse items-center gap-12 px-6 pb-24 pt-28 sm:pt-36 md:flex-row md:items-center md:justify-between md:gap-8">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 pb-24 pt-28 sm:pt-36 md:flex-row md:items-center md:justify-between md:gap-8">
         <div>
           <Reveal delay={100}>
             <h1 className="max-w-2xl font-display text-4xl font-medium leading-[1.08] text-ink sm:text-6xl">
@@ -18,9 +20,13 @@ export default function Hero() {
           </Reveal>
           <Reveal delay={300}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-              10 years shipping enterprise SaaS platforms — and a side habit
-              of building the products myself, end to end, to stay
-              technically sharp.
+              {years} years shipping enterprise SaaS platforms — and a side
+              habit of building the products myself, end to end, to stay
+              technically sharp. I&apos;ve led platforms used across
+              Akamai&apos;s global partner network, and solo-built a
+              production app from architecture to launch. When I sit across
+              from engineering on a tradeoff, I&apos;ve usually already made
+              that tradeoff myself.
             </p>
           </Reveal>
           <Reveal delay={400}>
@@ -40,8 +46,8 @@ export default function Hero() {
             </div>
           </Reveal>
         </div>
-        <Reveal delay={200} className="shrink-0">
-          <div className="relative aspect-[4/5] w-64 overflow-hidden rounded-md sm:w-80">
+        <Reveal delay={200} className="hidden shrink-0 md:block">
+          <div className="relative aspect-[4/5] w-80 overflow-hidden rounded-md">
             <Image
               src="/image.png"
               alt="Aakash Jain"

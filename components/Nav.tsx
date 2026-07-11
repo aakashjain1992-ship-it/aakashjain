@@ -85,7 +85,6 @@ export default function Nav() {
           <Logo />
           <span className="sm:hidden">AJ</span>
           <span className="hidden sm:inline">Aakash Jain</span>
-          <span className="glow-cyan text-cyan">.</span>
         </a>
 
         <div className="hidden items-center gap-7 sm:flex">

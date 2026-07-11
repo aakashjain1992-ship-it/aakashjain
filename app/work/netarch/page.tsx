@@ -91,7 +91,7 @@ export default function NetarchCaseStudy() {
             className="flex items-center gap-2.5 font-display text-[15px] font-medium text-ink"
           >
             <Logo />
-            Aakash Jain<span className="glow-cyan text-cyan">.</span>
+            Aakash Jain
           </Link>
           <Link
             href="/#work"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import Badge from "./Badge";
+import GithubActivity from "./GithubActivity";
 
 function Arrow() {
   return (
@@ -179,6 +180,29 @@ export default function Work() {
                 JobSpy scraping enriched with the Claude API to rank and
                 filter listings.
               </p>
+            </div>
+          </article>
+        </Reveal>
+
+        {/* GitHub activity — live contribution graph */}
+        <Reveal delay={300} className="md:col-span-2">
+          <article className="neon-card group rounded-md p-7">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="font-display text-lg font-medium text-ink">
+                GitHub activity <Arrow />
+              </h3>
+              <Badge tone="lime">live</Badge>
+            </div>
+            <a
+              href="https://github.com/aakashjain1992-ship-it"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block font-mono text-[11px] text-ink-faint transition-colors hover:text-cyan"
+            >
+              github.com/aakashjain1992-ship-it ↗
+            </a>
+            <div className="mt-4 rounded-md border border-line bg-void-2 p-4">
+              <GithubActivity />
             </div>
           </article>
         </Reveal>

@@ -45,6 +45,37 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Aakash Jain",
+  jobTitle: "Senior Technical Product Manager",
+  description,
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aakashjain.vercel.app",
+  image: `${
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://aakashjain.vercel.app"
+  }/image.png`,
+  email: "mailto:aakashjain1992@gmail.com",
+  sameAs: [
+    "https://www.linkedin.com/in/aakashjain1992",
+    "https://github.com/aakashjain1992-ship-it",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Akamai Technologies",
+  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "BIMTECH, Greater Noida",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Sharda University",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,6 +86,10 @@ export default function RootLayout({
       <body
         className={`${display.variable} ${body.variable} ${mono.variable} font-body antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Analytics />
         <SpeedInsights />

@@ -1,15 +1,6 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-
-const STATS = [
-  { value: "10", label: "years in product" },
-  {
-    value: "10+",
-    label:
-      "major platforms shipped — career and self-built — plus dozens of smaller tools",
-  },
-  { value: "40%+", label: "support ticket reduction" },
-];
+import { getYearsOfExperience } from "@/lib/experience";
 
 const DOMAINS = [
   {
@@ -27,6 +18,17 @@ const DOMAINS = [
 ];
 
 export default function About() {
+  const years = getYearsOfExperience();
+  const STATS = [
+    { value: String(years), label: "years in product" },
+    {
+      value: "10+",
+      label:
+        "major platforms shipped — career and self-built — plus dozens of smaller tools",
+    },
+    { value: "40%+", label: "support ticket reduction" },
+  ];
+
   return (
     <section id="about" className="mx-auto max-w-5xl px-6 py-24">
       <SectionHeading path="/about" title="Systems thinker, hands-on builder" />
