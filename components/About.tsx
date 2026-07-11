@@ -6,7 +6,7 @@ const STATS = [
   {
     value: "10+",
     label:
-      "Build and ship — 6 major platforms (career + side project), plus many small tools",
+      "major platforms shipped — career and self-built — plus dozens of smaller tools",
   },
   { value: "40%+", label: "support ticket reduction" },
 ];
@@ -34,8 +34,8 @@ export default function About() {
         <Reveal delay={100}>
           <div className="space-y-5 leading-relaxed text-ink-soft">
             <p>
-              I started in mechanical engineering, picked up a PGDM, and found
-              my way into product — across three very different domains:
+              I started in mechanical engineering, picked up a PGDM, and built
+              a product career spanning three very different domains:
             </p>
             <ul className="space-y-2 text-[15px]">
               {DOMAINS.map((d) => (
@@ -50,9 +50,9 @@ export default function About() {
               ))}
             </ul>
             <p>
-              The common thread has been the same throughout: taking messy,
-              multi-stakeholder workflows and turning them into systems that
-              measurably work better.
+              The common thread: I take messy, multi-stakeholder workflows
+              apart and rebuild them as systems that measurably work
+              better — faster, cheaper, and easier to run.
             </p>
             <p>
               The other thread: I build my own products — full stack, end to

@@ -1,28 +1,7 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-
-function Badge({
-  children,
-  tone = "cyan",
-}: {
-  children: React.ReactNode;
-  tone?: "cyan" | "magenta" | "lime" | "faint";
-}) {
-  const tones = {
-    cyan: "border-[rgba(0,229,255,0.35)] bg-[rgba(0,229,255,0.08)] text-cyan",
-    magenta:
-      "border-[rgba(255,61,242,0.35)] bg-[rgba(255,61,242,0.08)] text-magenta",
-    lime: "border-[rgba(182,255,46,0.35)] bg-[rgba(182,255,46,0.08)] text-lime",
-    faint: "border-line-bright bg-surface-2 text-ink-faint",
-  };
-  return (
-    <span
-      className={`rounded-full border px-3 py-1 font-mono text-[11px] ${tones[tone]}`}
-    >
-      {children}
-    </span>
-  );
-}
+import Badge from "./Badge";
 
 function Arrow() {
   return (
@@ -42,30 +21,36 @@ export default function Work() {
           <article className="neon-card group rounded-md p-7 sm:p-9">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="font-display text-xl font-medium text-ink sm:text-2xl">
-                <a
-                  href="https://astrotattwa.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-cyan"
-                >
+                <Link href="/work/astrotattwa" className="hover:text-cyan">
                   Astrotattwa
-                </a>{" "}
+                </Link>{" "}
                 <Arrow />
               </h3>
-              <Badge tone="magenta">side project</Badge>
+              <Badge tone="magenta">solo-built · production</Badge>
             </div>
-            <a
-              href="https://github.com/aakashjain1992-ship-it/astrotattwa-web"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-block font-mono text-[11px] text-ink-faint transition-colors hover:text-cyan"
-            >
-              view source ↗
-            </a>
+            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+              <a
+                href="https://astrotattwa.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] text-ink-faint transition-colors hover:text-cyan"
+              >
+                astrotattwa.com ↗
+              </a>
+              <a
+                href="https://github.com/aakashjain1992-ship-it/astrotattwa-web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] text-ink-faint transition-colors hover:text-cyan"
+              >
+                view source ↗
+              </a>
+            </div>
             <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
-              A Vedic astrology platform built solo — Next.js, Supabase, and an
-              LLM pipeline — to stay hands-on with full-stack development and
-              AI product integration, from architecture through deployment.
+              Vedic astrology platform, solo-built — live within a month,
+              then iterated continuously over 5.5 months. Live at
+              astrotattwa.com with 6,400+ monthly visitors, processing real
+              payments, ranking in organic search.
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
               Deepest rabbit hole: debugging the Panchang calculation engine —
@@ -80,17 +65,25 @@ export default function Work() {
               — a self-built bot that does a weekly automated code review and
               writes up progress docs, no manual upkeep required.
             </p>
+            <Link
+              href="/work/astrotattwa"
+              className="mt-3 inline-block font-mono text-[11px] text-cyan transition-colors hover:text-ink"
+            >
+              full case study →
+            </Link>
             <div className="mt-5 flex flex-wrap gap-2">
-              {["759 commits, solo", "0 → production in 5 months", "live"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-[rgba(182,255,46,0.35)] bg-[rgba(182,255,46,0.08)] px-3 py-1 font-mono text-[11px] text-lime"
-                  >
-                    {t}
-                  </span>
-                )
-              )}
+              {[
+                "761 commits, solo",
+                "live in ~1 month",
+                "5.5 months of continuous shipping",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-[rgba(182,255,46,0.35)] bg-[rgba(182,255,46,0.08)] px-3 py-1 font-mono text-[11px] text-lime"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
             <div className="mt-2.5 flex flex-wrap gap-2">
               {[
@@ -111,42 +104,58 @@ export default function Work() {
           </article>
         </Reveal>
 
-        {/* Internal tool redesign */}
-        <Reveal delay={100}>
-          <article className="neon-card group h-full rounded-md p-7">
+        {/* Netarch 2.0 SQL Console — query module UI */}
+        <Reveal delay={100} className="md:col-span-2">
+          <article className="neon-card group rounded-md p-7">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="font-display text-lg font-medium text-ink">
-                Design-to-code workflow <Arrow />
+                <Link href="/work/netarch" className="hover:text-cyan">
+                  Netarch 2.0 — Query Module UI
+                </Link>{" "}
+                <Arrow />
               </h3>
               <Badge tone="cyan">at Akamai</Badge>
             </div>
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Redesigned an internal tool&apos;s frontend: designed the UI in
-              Figma, then used Claude Code to translate the design system
-              directly into production frontend code — cutting design-to-code
-              turnaround time.
+              Prototyped the query-module UI in Figma Make, put it in front
+              of users before writing any code, then integrated the
+              validated design end-to-end with Claude Code — shipping
+              roughly a quarter&apos;s worth of planned work in about a
+              month.
             </p>
-          </article>
-        </Reveal>
-
-        {/* City Watch — placeholder, content pending */}
-        <Reveal delay={200}>
-          <article className="group h-full rounded-md border border-dashed border-line-bright bg-transparent p-7">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="font-display text-lg font-medium text-ink-soft">
-                City Watch
-              </h3>
-              <Badge tone="faint">team case study — coming soon</Badge>
+            <Link
+              href="/work/netarch"
+              className="mt-3 inline-block font-mono text-[11px] text-cyan transition-colors hover:text-ink"
+            >
+              full case study →
+            </Link>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["1 quarter planned → shipped in 1 mo"].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-[rgba(182,255,46,0.35)] bg-[rgba(182,255,46,0.08)] px-3 py-1 font-mono text-[11px] text-lime"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
-            <p className="mt-4 leading-relaxed text-ink-faint">
-              A team case study on an AI-driven traffic incident management
-              platform. Full write-up coming soon.
-            </p>
+            <div className="mt-2.5 flex flex-wrap gap-2">
+              {["~30 files", "12 reusable primitives", "token-based theming"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="metric rounded-full px-3 py-1 font-mono text-[11px]"
+                  >
+                    {t}
+                  </span>
+                ),
+              )}
+            </div>
           </article>
         </Reveal>
 
         {/* Smaller builds */}
-        <Reveal delay={300} className="md:col-span-2">
+        <Reveal delay={200} className="md:col-span-2">
           <article className="neon-card group rounded-md p-7">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="font-display text-lg font-medium text-ink">

@@ -9,8 +9,11 @@ const ROLES = [
     domain:
       "Core internal logistics tooling — spanning on-ground field support and ISP traffic dashboards",
     bullets: [
-      "Led product vision and roadmap for three partner-facing platforms (Logistics Portal, Field Tech Portal, Network Partner Portal) serving global tech partners, ISPs, and logistics vendors.",
-      "Improved user satisfaction by 30% and reduced support tickets by 40%+ through structured research and workflow automation.",
+      "Own product vision and roadmap for three partner-facing platforms — Logistics Portal, Field Tech Portal, Network Partner Portal — used by tech partners, ISPs, and logistics vendors across Akamai's global CDN and operations network.",
+      "Drove CSAT up 30% and cut support tickets 40%+ by rebuilding workflows around real user research across all three platforms.",
+      "Launched new ISP and Field Tech platform versions end-to-end — partnering with engineering, UX, and operations across multiple geographies, delivered on time without quality compromise.",
+      "Established quarterly planning and OKR-aligned prioritization under SAFe; led cross-functional delivery across engineering, UX, operations, and senior leadership on parallel high-impact initiatives.",
+      "Drove AI-adjacent roadmap initiatives and data-driven operational tooling to cut overhead and improve platform reliability at scale.",
     ],
     metrics: ["+30% CSAT", "−40% tickets"],
   },
@@ -21,10 +24,12 @@ const ROLES = [
     domain:
       "Marketplace model for ocean freight — built across customer, vendor, and internal-ops surfaces",
     bullets: [
-      "Conceived and launched the “Less Container Load” (LCL) feature as a net-new offering — on track to contribute 30% of annual business revenue.",
-      "Designed intelligent workflow automation for lead assignment, reducing turnaround time by 70%.",
+      "Conceived, built, and launched Less Container Load (LCL) as a net-new revenue line — now on track to drive 30% of annual business revenue.",
+      "Engineered intelligent lead-assignment automation that cut turnaround time 70% and improved lead-to-booking conversion 10%.",
+      "Automated a multi-stakeholder notification engine — contextual updates to shippers, vendors, sales, and ops across the quote-to-booking lifecycle — eliminating manual follow-up.",
+      "Improved user activation 10% and engagement 8% through a full UI/UX revamp focused on learnability and task efficiency.",
     ],
-    metrics: ["30% of revenue", "−70% TAT"],
+    metrics: ["30% of revenue", "−70% TAT", "+10% conversion", "+10% activation"],
   },
   {
     title: "Product Manager",
@@ -33,10 +38,13 @@ const ROLES = [
     domain:
       "SaaS order & inventory management platform for eCommerce sellers",
     bullets: [
-      "Launched 20+ integrations across 4 geographies (SEA, Middle East, India, US).",
-      "Increased MRR by 18% through pricing redesign; reduced page load time from ~10s to ~2s through UI/UX and backend workflow redesign.",
+      "Launched 20+ integrations across 4 geographies — SEA, Middle East, India, US — enabling market entry and revenue growth.",
+      "Redesigned pricing to include a monthly minimum commitment, growing MRR 18% and improving revenue predictability for enterprise accounts.",
+      "Launched one-click Tally ERP 9 integration, driving a 10–20% MRR increase per client and becoming a key purchase driver in the India market.",
+      "Rebuilt UI/UX, backend workflows, and SQL queries to cut page load from ~10s to ~2s and core workflow clicks by 40% — a major boost to agent throughput.",
+      "Aligned business leaders and engineering stakeholders around a single roadmap, consistently hitting delivery timelines.",
     ],
-    metrics: ["+18% MRR", "10s → 2s load"],
+    metrics: ["+18% MRR", "10s → 2s load", "Tally ERP driver"],
   },
 ];
 

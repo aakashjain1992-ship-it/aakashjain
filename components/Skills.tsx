@@ -11,6 +11,13 @@ const GROUPS = [
       "Stakeholder Management",
       "GTM",
       "Pricing",
+      "0→1 Product Launch",
+      "OKRs & Quarterly Planning",
+      "Cross-functional Leadership",
+      "Partner & Vendor Management",
+      "Marketplace Products",
+      "Global Rollouts",
+      "AI-adjacent Roadmaps",
     ],
   },
   {
@@ -18,11 +25,20 @@ const GROUPS = [
     items: [
       "Intelligent Automation",
       "Rule-based Decisioning",
-      "AI-adjacent Roadmaps",
+      "LLM Integration",
+      "Prompt Caching",
+      "Claude Code",
+      "Codex",
+      "Next.js",
+      "Supabase",
       "MySQL",
       "PostgreSQL",
       "Google Analytics",
       "FullStory",
+      "Full-stack Ownership",
+      "Auth Engineering",
+      "Production Reliability",
+      "Rules-engine Design",
     ],
   },
   {
@@ -43,17 +59,22 @@ const GROUPS = [
     items: [
       "UX Wireframing",
       "Prototyping",
+      "Design Systems",
+      "Design-to-Code",
       "Figma",
       "Adobe XD",
       "User Research",
       "Usability Testing",
+      "Component Architecture",
+      "Token-based Theming",
+      "Data-informed UX",
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-24">
+    <section id="skills" className="mx-auto max-w-5xl px-6 py-24">
       <SectionHeading path="/skills" title="The stack" />
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {GROUPS.map((g, i) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const LINKS = [
   { id: "about", label: "about" },
@@ -8,29 +9,6 @@ const LINKS = [
   { id: "work", label: "work" },
   { id: "contact", label: "contact" },
 ];
-
-function NodeMark() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden
-      className="shrink-0"
-    >
-      <path
-        d="M3 12L8 4L13 12"
-        stroke="var(--cyan)"
-        strokeWidth="1.2"
-        strokeOpacity="0.6"
-      />
-      <circle cx="8" cy="4" r="1.6" fill="var(--cyan)" />
-      <circle cx="3" cy="12" r="1.6" fill="var(--magenta)" />
-      <circle cx="13" cy="12" r="1.6" fill="var(--cyan)" />
-    </svg>
-  );
-}
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -104,7 +82,7 @@ export default function Nav() {
           href="#top"
           className="flex items-center gap-2.5 whitespace-nowrap font-display text-[15px] font-medium text-ink"
         >
-          <NodeMark />
+          <Logo />
           <span className="sm:hidden">AJ</span>
           <span className="hidden sm:inline">Aakash Jain</span>
           <span className="glow-cyan text-cyan">.</span>
