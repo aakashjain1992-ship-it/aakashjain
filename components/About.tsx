@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-import { getYearsOfExperience } from "@/lib/experience";
+import { getYearsOfExperienceLabel } from "@/lib/experience";
 
 const DOMAINS = [
   {
@@ -18,15 +18,17 @@ const DOMAINS = [
 ];
 
 export default function About() {
-  const years = getYearsOfExperience();
   const STATS = [
-    { value: String(years), label: "years in product" },
+    {
+      value: getYearsOfExperienceLabel(),
+      label: "years of experience in product building",
+    },
+    { value: "3", label: "different domains — eCommerce, Freight, Internet" },
     {
       value: "10+",
       label:
-        "major platforms shipped — career and self-built — plus dozens of smaller tools",
+        "platforms shipped — 6 in career, 2 self-built, plus many other small tools",
     },
-    { value: "40%+", label: "support ticket reduction" },
   ];
 
   return (

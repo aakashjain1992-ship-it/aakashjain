@@ -3,6 +3,7 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import Badge from "./Badge";
 import GithubActivity from "./GithubActivity";
+import ExpandableText from "./ExpandableText";
 
 function Arrow() {
   return (
@@ -16,7 +17,7 @@ export default function Work() {
   return (
     <section id="work" className="mx-auto max-w-5xl px-6 py-24">
       <SectionHeading path="/featured-work" title="Proof of build" />
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
         {/* Astrotattwa — flagship, spans 2 columns */}
         <Reveal className="md:col-span-2">
           <article className="neon-card group rounded-md p-7 sm:p-9">
@@ -47,25 +48,27 @@ export default function Work() {
                 view source ↗
               </a>
             </div>
-            <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
-              Vedic astrology platform, solo-built — live within a month,
-              then iterated continuously over 5.5 months. Live at
-              astrotattwa.com with 6,400+ monthly visitors, processing real
-              payments, ranking in organic search.
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
-              Deepest rabbit hole: debugging the Panchang calculation engine —
-              the kind of problem you only understand by owning the code
-              yourself.
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-faint">
-              The repo also runs its own{" "}
-              <span className="font-mono text-ink-soft">
-                github-automation-agent
-              </span>{" "}
-              — a self-built bot that does a weekly automated code review and
-              writes up progress docs, no manual upkeep required.
-            </p>
+            <ExpandableText lines={3} className="mt-4 max-w-2xl">
+              <p className="leading-relaxed text-ink-soft">
+                Vedic astrology platform, solo-built — live within a month,
+                then iterated continuously over 5.5 months. Live at
+                astrotattwa.com with 6,400+ monthly visitors, processing real
+                payments, ranking in organic search.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-faint">
+                Deepest rabbit hole: debugging the Panchang calculation engine
+                — the kind of problem you only understand by owning the code
+                yourself.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-faint">
+                The repo also runs its own{" "}
+                <span className="font-mono text-ink-soft">
+                  github-automation-agent
+                </span>{" "}
+                — a self-built bot that does a weekly automated code review
+                and writes up progress docs, no manual upkeep required.
+              </p>
+            </ExpandableText>
             <Link
               href="/work/astrotattwa"
               className="mt-3 inline-block font-mono text-[11px] text-cyan transition-colors hover:text-ink"
@@ -117,13 +120,15 @@ export default function Work() {
               </h3>
               <Badge tone="cyan">at Akamai</Badge>
             </div>
-            <p className="mt-4 leading-relaxed text-ink-soft">
-              Prototyped the query-module UI in Figma Make, put it in front
-              of users before writing any code, then integrated the
-              validated design end-to-end with Claude Code — shipping
-              roughly a quarter&apos;s worth of planned work in about a
-              month.
-            </p>
+            <ExpandableText lines={3} className="mt-4">
+              <p className="leading-relaxed text-ink-soft">
+                Prototyped the query-module UI in Figma Make, put it in front
+                of users before writing any code, then integrated the
+                validated design end-to-end with Claude Code — shipping
+                roughly a quarter&apos;s worth of planned work in about a
+                month.
+              </p>
+            </ExpandableText>
             <Link
               href="/work/netarch"
               className="mt-3 inline-block font-mono text-[11px] text-cyan transition-colors hover:text-ink"
@@ -176,10 +181,12 @@ export default function Work() {
                   view source ↗
                 </a>
               </div>
-              <p className="mt-1.5 text-sm text-ink-soft">
-                JobSpy scraping enriched with the Claude API to rank and
-                filter listings.
-              </p>
+              <ExpandableText lines={2} className="mt-1.5">
+                <p className="text-sm text-ink-soft">
+                  JobSpy scraping enriched with the Claude API to rank and
+                  filter listings.
+                </p>
+              </ExpandableText>
             </div>
           </article>
         </Reveal>

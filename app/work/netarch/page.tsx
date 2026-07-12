@@ -205,21 +205,6 @@ export default function NetarchCaseStudy() {
                 { value: "3", label: "modal flows" },
               ]}
             />
-            <div>
-              <StatGroup
-                path="./scale (context for why reusability mattered)"
-                stats={[
-                  { value: "845", label: "email-scheduled reports" },
-                  { value: "57k", label: "all-time saved bookmarks" },
-                ]}
-              />
-              <Reveal>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-faint">
-                  Built to serve a system with real production scale behind
-                  it — not a toy UI.
-                </p>
-              </Reveal>
-            </div>
           </div>
         </section>
 

@@ -182,6 +182,25 @@ button:focus-visible {
   color: var(--cyan);
 }
 
+/* Slim themed scrollbar for horizontal overflow */
+.slim-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-bright) transparent;
+}
+.slim-scrollbar::-webkit-scrollbar {
+  height: 5px;
+}
+.slim-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slim-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--line-bright);
+  border-radius: 9999px;
+}
+.slim-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-dim);
+}
+
 /* Scanline shimmer under hero headline */
 @keyframes scan {
   from {

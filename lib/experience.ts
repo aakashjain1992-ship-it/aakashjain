@@ -11,6 +11,17 @@ export function getYearsOfExperience(): number {
   return years;
 }
 
+// "10" only lands exactly on the anniversary date; every other day of that
+// year is really "10 years and some months", so show "10+" instead.
+export function getYearsOfExperienceLabel(): string {
+  const now = new Date();
+  const isExactAnniversary =
+    now.getMonth() === CAREER_START.getMonth() &&
+    now.getDate() === CAREER_START.getDate();
+  const years = getYearsOfExperience();
+  return isExactAnniversary ? String(years) : `${years}+`;
+}
+
 export function getDuration(start: Date, end: Date = new Date()): string {
   let years = end.getFullYear() - start.getFullYear();
   let months = end.getMonth() - start.getMonth();

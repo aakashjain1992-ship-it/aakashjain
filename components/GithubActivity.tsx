@@ -88,7 +88,7 @@ export default async function GithubActivity({
       <p className="font-mono text-xs text-ink-faint">
         {total.toLocaleString()} contributions in {year}
       </p>
-      <div className="mt-3 overflow-x-auto">
+      <div className="mt-3 overflow-x-auto slim-scrollbar">
         <div className="inline-flex gap-[3px]">
           <div className="flex flex-col gap-[3px] pr-1 pt-4">
             {DAY_LABELS.map((label, i) => (

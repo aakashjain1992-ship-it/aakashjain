@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
-import { getYearsOfExperience } from "@/lib/experience";
+import { getYearsOfExperienceLabel } from "@/lib/experience";
 
 export default function Hero() {
-  const years = getYearsOfExperience();
+  const years = getYearsOfExperienceLabel();
   return (
     <header id="top" className="relative overflow-hidden">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 pb-24 pt-28 sm:pt-36 md:flex-row md:items-center md:justify-between md:gap-8">
@@ -20,13 +20,11 @@ export default function Hero() {
           </Reveal>
           <Reveal delay={300}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-              {years} years shipping enterprise SaaS platforms — and a side
-              habit of building the products myself, end to end, to stay
-              technically sharp. I&apos;ve led platforms used across
-              Akamai&apos;s global partner network, and solo-built a
-              production app from architecture to launch. When I sit across
-              from engineering on a tradeoff, I&apos;ve usually already made
-              that tradeoff myself.
+              {years} years of experience in shipping enterprise SaaS
+              platforms — and a side habit of building the products myself,
+              end to end, to stay technically sharp. I&apos;ve led core
+              platforms used across Akamai&apos;s global partner network,
+              and solo-built a production app from architecture to launch.
             </p>
           </Reveal>
           <Reveal delay={400}>
