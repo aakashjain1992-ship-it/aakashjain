@@ -1,5 +1,5 @@
 import Reveal from "./Reveal";
-import CopyEmailButton from "./CopyEmailButton";
+import ContactForm from "./ContactForm";
 
 const CERTS = [
   "Certified SAFe® 5 Product Owner / Product Manager — Scaled Agile, Inc.",
@@ -174,23 +174,17 @@ export default function Closing() {
             <h2 className="mt-3 font-display text-2xl font-medium text-ink sm:text-3xl">
               Let&apos;s build something that ships.
             </h2>
-            <div className="mt-7 flex flex-wrap gap-4">
-              <a
-                href="mailto:aakashjain1992@gmail.com"
-                className="rounded-sm bg-cyan px-5 py-2.5 font-mono text-[13px] font-medium text-void shadow-[0_0_24px_rgba(0,229,255,0.35)] transition-shadow hover:shadow-[0_0_36px_rgba(0,229,255,0.55)]"
-              >
-                email me
-              </a>
-              <CopyEmailButton email="aakashjain1992@gmail.com" />
-              <a
-                href="https://www.linkedin.com/in/aakashjain1992"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-sm border border-line-bright px-5 py-2.5 font-mono text-[13px] text-ink transition-colors hover:border-cyan hover:text-cyan"
-              >
-                linkedin ↗
-              </a>
+            <div className="mt-7">
+              <ContactForm />
             </div>
+            <a
+              href="https://www.linkedin.com/in/aakashjain1992"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block rounded-sm border border-line-bright px-5 py-2.5 font-mono text-[13px] text-ink transition-colors hover:border-cyan hover:text-cyan"
+            >
+              linkedin ↗
+            </a>
             <p className="mt-12 font-mono text-[11px] text-ink-faint">
               © {new Date().getFullYear()} Aakash Jain · designed as a system,
               built by hand
